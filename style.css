@@ -1,0 +1,250 @@
+/* ===== CSS RESET (removes browser inconsistencies) ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== GLOBAL STYLES ===== */
+:root {
+    --bg: #ffffff;
+    --text: #1e1e2f;
+    --primary: #6c63ff;
+    --secondary: #4d4c7d;
+    --card-bg: #f9f9ff;
+    --nav-bg: rgba(255,255,255,0.95);
+    --shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ===== DARK MODE ===== */
+body.dark {
+    --bg: #1a1a2e;
+    --text: #eaeaea;
+    --card-bg: #16213e;
+    --nav-bg: rgba(26,26,46,0.95);
+    --shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 5rem 2rem;
+}
+
+section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary);
+}
+
+/* Hero */
+#hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+/* About */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-img {
+    width: 200px;
+    height: auto;
+}
+
+/* Projects */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    padding: 1.8rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+}
+
+.tech-tags {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--secondary);
+}
+
+.project-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Contact */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: var(--text);
+    font-size: 2rem;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--primary);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary);
+    border-top: 1px solid rgba(128,128,128,0.2);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* For a beginner, we skip mobile menu – but you can add a hamburger later */
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-img {
+        width: 150px;
+    }
+
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
